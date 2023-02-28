@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Projet_E5</string>
+    <string name="app_login">Login</string>
+    <string name="default_textV_login">Email</string>
+    <string name="default_textV_password">Mot de passe</string>
+    <string name="app_version">Version V1.1</string>
+    <string name="app_home">Home</string>
+    <string name="mot_de_passe_oublie">Mot de passe oublié ?</string>
+    <string name="pas_de_compte">Pas de compte ? Créez-en un</string>
+</resources>
