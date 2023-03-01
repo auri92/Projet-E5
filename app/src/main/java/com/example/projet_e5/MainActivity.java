@@ -25,4 +25,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+    protected void test(){
+        System.out.println("test");
+    }
 }
