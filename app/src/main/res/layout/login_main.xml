@@ -123,12 +123,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="@string/pas_de_compte"
-        android:textColor="#FFFFFF"
+        android:textColor="#795548"
         android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="SmallSp" />
+
+    <ImageButton
+        android:id="@+id/buttonhome"
+        android:layout_width="78dp"
+        android:layout_height="62dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/app_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.009"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
