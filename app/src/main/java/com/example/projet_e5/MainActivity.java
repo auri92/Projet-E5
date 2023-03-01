@@ -26,7 +26,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected void test(){
-        System.out.println("test");
-    }
+
 }
