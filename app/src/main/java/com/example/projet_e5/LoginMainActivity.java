@@ -1,10 +1,12 @@
 package com.example.projet_e5;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -74,18 +76,22 @@ public class LoginMainActivity extends AppCompatActivity {
             Matcher matcher = regex.matcher(User.toString());
             boolean isMatched = matcher.matches();
             if (isMatched){
-                String Password_Origin = "e0c42d61855381f30d670f6cdebc7f13";
+                String Password_Origin = "5950354eb7204424bf1fddeadedce7e8";
                 String Password_md5 = getMD5Str(Password);
                 System.out.println(Password_md5);
                 if (Password_md5.equals(Password_Origin)){
+                    Show_notification("Password ok!");
                     return true;
                 }else{
+                    Show_notification("Password error!");
                     return false;
                 }
             }else{
+                Show_notification("Email error!");
                 return false;
             }
         }else{
+            Show_notification("Password or Email null!");
             return false;
         }
     }
@@ -95,14 +101,20 @@ public class LoginMainActivity extends AppCompatActivity {
         try {
             MessageDigest md5 = MessageDigest.getInstance("md5");
             digest = md5.digest(str.getBytes("utf-8"));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 
         String md5Str = new BigInteger(1, digest).toString(16);
         return md5Str;
+    }
+
+    protected void Show_notification(String info){
+        Context context = getApplicationContext();
+        CharSequence text = info;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context,text,duration);
+        toast.show();
     }
 
 }
