@@ -8,16 +8,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginMainActivity extends AppCompatActivity {
     private String Username,Password;
@@ -29,10 +28,12 @@ public class LoginMainActivity extends AppCompatActivity {
         back_Home();
         get_login();
 
+        Api my_api = new Api();
 
         Button button_login = findViewById(R.id.button5);
         button_login.setOnClickListener(v ->{
-            System.out.println(check_Login());
+            //System.out.println(check_Login());
+            my_api.Send_Api("login","Jiojio000608.");
         });
     }
 
