@@ -7,4 +7,5 @@
     <string name="app_home">Home</string>
     <string name="mot_de_passe_oublie">Mot de passe oublié ?</string>
     <string name="pas_de_compte">Pas de compte ? Créez-en un</string>
+    <string name="app_inscription">Inscription</string>
 </resources>

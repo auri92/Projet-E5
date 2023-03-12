@@ -10,16 +10,22 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 public class LoginMainActivity extends AppCompatActivity {
     private String Username,Password;
+    private Button button_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,15 +33,10 @@ public class LoginMainActivity extends AppCompatActivity {
 
         back_Home();
         get_login();
+        go_Inscription();
 
-        Api my_api = new Api();
-
-        Button button_login = findViewById(R.id.button5);
-        button_login.setOnClickListener(v ->{
-            //System.out.println(check_Login());
-            my_api.Send_Api("login","Jiojio000608.");
-        });
     }
+
 
     protected void back_Home(){
         ImageButton button_home = findViewById(R.id.buttonhome);
@@ -47,16 +48,68 @@ public class LoginMainActivity extends AppCompatActivity {
         });
     }
 
+    protected void go_Inscription(){
+        Button button_inscription = findViewById(R.id.button5);
+        button_inscription.setOnClickListener(v ->{
+            Intent intent = new Intent();
+            intent.setClass(LoginMainActivity.this,InscriptionMainActivity.class);
+            startActivity(intent);
+        });
+    }
+
     protected void get_login(){
         Button button_login = findViewById(R.id.button_login);
         TextView text_id,text_password;
         text_id = findViewById(R.id.text_id);
         text_password = findViewById(R.id.text_password);
 
+
         button_login.setOnClickListener(v -> {
             this.Username = text_id.getText().toString();
             this.Password = text_password.getText().toString();
+            if (check_Login()){
+                try {
+                    JSONObject res = get_UserfromApi();
+                    if (res != null){
+                        String id = res.getString("id");
+                        Intent intent = new Intent(LoginMainActivity.this,MainActivity.class);
+                        intent.putExtra("id",id);
+                        startActivity(intent);
+                    }else{
+                        Show_notification("utilisateur n'existe pas ! ");
+                    }
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         });
+
+    }
+
+    protected JSONObject get_UserfromApi() throws InterruptedException {
+        Boolean res = false;
+
+        String function_name = "login",
+                token = "Jiojio000608.",
+                table_name = "clients",
+                values_send = getUsername() + "," + getPassword();
+        ;
+
+        Thread_API api = new Thread_API();
+        ArrayList<String> list_values = new ArrayList<String>();
+        list_values.add(0,function_name);
+        list_values.add(1,token);
+        list_values.add(2,table_name);
+        list_values.add(3,values_send);
+        api.set_array_list(list_values);
+
+
+        api.start();
+        api.join();
+
+        return api.get_Values();
     }
 
     protected String getUsername(){
@@ -70,29 +123,20 @@ public class LoginMainActivity extends AppCompatActivity {
     protected boolean check_Login(){
         String User = this.getUsername();
         String Password = this.getPassword();
-        System.out.println(User.length() + " / " + Password.length());
+
         if (User.length() > 0 && Password.length() > 0){
             String check = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
             Pattern regex = Pattern.compile(check);
             Matcher matcher = regex.matcher(User.toString());
             boolean isMatched = matcher.matches();
             if (isMatched){
-                String Password_Origin = "5950354eb7204424bf1fddeadedce7e8";
-                String Password_md5 = getMD5Str(Password);
-                System.out.println(Password_md5);
-                if (Password_md5.equals(Password_Origin)){
-                    Show_notification("Password ok!");
-                    return true;
-                }else{
-                    Show_notification("Password error!");
-                    return false;
-                }
+                return true;
             }else{
-                Show_notification("Email error!");
+                Show_notification("Erreur de format d'adresse e-mail!");
                 return false;
             }
         }else{
-            Show_notification("Password or Email null!");
+            Show_notification("L'adresse mail ou le mot de passe ne peut pas être vide!");
             return false;
         }
     }
