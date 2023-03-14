@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         String id = intent.getStringExtra("id");
 
         Button button_login = findViewById(R.id.button_pageLogin);
-        System.out.println("ID : " + id);
+
         if (id == null || id.equals("null")){
             button_login.setText("Login");
             go_Login();

@@ -8,4 +8,18 @@
     <string name="mot_de_passe_oublie">Mot de passe oublié ?</string>
     <string name="pas_de_compte">Pas de compte ? Créez-en un</string>
     <string name="app_inscription">Inscription</string>
+    <string name="app_prenom">Prénom</string>
+    <string name="app_nom">Nom</string>
+    <string name="app_tele">Téléphone</string>
+    <string name="app_naissance">Date de naissance</string>
+    <string name="app_mot_de_passe_confirme">Mot de passe confirmer</string>
+    <string name="app_address">Address</string>
+    <string name="app_Je_suis_médecin">Je suis médecin</string>
+    <string name="todo">TODO</string>
+    <string name="app_se_déconnecter">se déconnecter</string>
+    <string name="app_nomprenom">Nom / Prénom </string>
+    <string name="app_save">Sauvegarder les modifications</string>
+    <string name="textview">TextView</string>
+    <string name="app_mdp_oublie">mdp_oublie</string>
+    <string name="app_change_mdp">Changer le mot de passe</string>
 </resources>

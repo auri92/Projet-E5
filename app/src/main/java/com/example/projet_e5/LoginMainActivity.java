@@ -34,9 +34,23 @@ public class LoginMainActivity extends AppCompatActivity {
         back_Home();
         get_login();
         go_Inscription();
+        go_mdp_oublie();
 
     }
 
+    protected void go_mdp_oublie(){
+        Button button_mdp_oublie = findViewById(R.id.button_mdp_oublie);
+        button_mdp_oublie.setOnClickListener(v->{
+            Intent intent = new Intent();
+            intent.setClass(LoginMainActivity.this,Mdpoublie.class);
+            TextView tv_email = findViewById(R.id.text_id);
+            if (tv_email.getText() != null){
+                intent.putExtra("email",tv_email.getText());
+            }
+            startActivity(intent);
+        });
+
+    }
 
     protected void back_Home(){
         ImageButton button_home = findViewById(R.id.buttonhome);
@@ -76,7 +90,7 @@ public class LoginMainActivity extends AppCompatActivity {
                         intent.putExtra("id",id);
                         startActivity(intent);
                     }else{
-                        Show_notification("utilisateur n'existe pas ! ");
+                        Show_notification("utilisateur n'existe pas ou Mot de passe incorrect ! ");
                     }
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);

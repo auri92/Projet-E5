@@ -6,20 +6,159 @@
     android:layout_height="match_parent"
     tools:context=".InscriptionMainActivity">
 
+    <EditText
+        android:id="@+id/ed_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/app_nom"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Hou"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <EditText
+        android:id="@+id/ed_tele"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/app_tele"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:text="06 95 86 72 74"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
+
+    <EditText
+        android:id="@+id/ed_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/default_textV_login"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:text="houzeyu7@gmail.com"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_passwordconfirmer" />
+
+    <EditText
+        android:id="@+id/ed_passwordconfirmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/app_mot_de_passe_confirme"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:text="Jiojio000608."
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+
+    <EditText
+        android:id="@+id/ed_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/default_textV_password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:text="Jiojio000608."
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_prenom" />
+
+    <EditText
+        android:id="@+id/ed_prenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/app_prenom"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Zeyu"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_nom" />
+
+    <EditText
+        android:id="@+id/ed_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/app_address"
+        android:inputType="textPostalAddress"
+        android:minHeight="48dp"
+        android:text="37 rue louise weiss 75013 paris"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_naissance" />
+
+    <CheckBox
+        android:id="@+id/cb_medecin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/app_Je_suis_médecin"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_address" />
+
+    <EditText
+        android:id="@+id/ed_naissance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/app_naissance"
+        android:inputType="date"
+        android:minHeight="48dp"
+        android:text="1998-05-12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/ed_tele" />
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="316dp"
-        android:layout_height="126dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="196dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/app_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:srcCompat="@drawable/Logo_INSCRIPTION" />
+        app:srcCompat="@drawable/logo_inscription" />
 
     <ImageButton
-        android:id="@+id/buttonhome2"
+        android:id="@+id/button_home"
         android:layout_width="78dp"
         android:layout_height="62dp"
         android:background="@android:color/transparent"
@@ -59,14 +198,16 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="395dp" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="224dp"
-        android:background="?android:attr/listDivider"
+    <Button
+        android:id="@+id/button_inscription"
+        android:layout_width="217dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/app_inscription"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cb_medecin"
+        tools:ignore="VisualLintBounds" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
