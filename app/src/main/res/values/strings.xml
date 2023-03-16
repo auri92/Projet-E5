@@ -22,4 +22,8 @@
     <string name="textview">TextView</string>
     <string name="app_mdp_oublie">mdp_oublie</string>
     <string name="app_change_mdp">Changer le mot de passe</string>
+    <string name="app_title1">Trouvez un rendez-vous avec</string>
+    <string name="app_title2">une médecin</string>
+    <string name="app_connecter">Se connecter</string>
+    <string name="title_img">title_img</string>
 </resources>
