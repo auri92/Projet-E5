@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class InscriptionMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscription_main);
         go_home();
         inscription();
+        check_box();
     }
 
     protected void go_home(){
@@ -137,5 +139,35 @@ public class InscriptionMainActivity extends AppCompatActivity {
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context,text,duration);
         toast.show();
+    }
+
+    protected void check_box(){
+        CheckBox cb = findViewById(R.id.cb_medecin);
+        cb.setOnClickListener(v->{
+            if (cb.isChecked()){
+                Button button_inscription = findViewById(R.id.button_inscription);
+                TextView ed_nom = findViewById(R.id.ed_nom);
+                TextView ed_prenom = findViewById(R.id.ed_prenom);
+                TextView ed_password = findViewById(R.id.ed_password);
+                TextView ed_password_confirmer = findViewById(R.id.ed_passwordconfirmer);
+                TextView ed_email = findViewById(R.id.ed_email);
+                TextView ed_tele = findViewById(R.id.ed_tele);
+                TextView ed_date_naissance = findViewById(R.id.ed_naissance);
+                TextView ed_address = findViewById(R.id.ed_address);
+                button_inscription.setOnClickListener(view->{
+                    Intent intent = new Intent();
+                    intent.putExtra("nom",ed_nom.getText().toString());
+                    intent.putExtra("prenom",ed_prenom.getText().toString());
+                    intent.putExtra("password",ed_password.getText().toString());
+                    intent.putExtra("email",ed_email.getText().toString());
+                    intent.putExtra("tele",ed_tele.getText().toString());
+                    intent.putExtra("naissance",ed_date_naissance.getText().toString());
+                    intent.putExtra("address",ed_address.getText().toString());
+
+                    intent.setClass(InscriptionMainActivity.this,Inscription_pro_MainActivity.class);
+                    startActivity(intent);
+                });
+            }
+        });
     }
 }

@@ -8,6 +8,7 @@
     android:background="@android:color/transparent"
     tools:context=".MainActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="414dp"
         android:layout_height="293dp"
